@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Programme de Donations - Rise of the Death</title>
+<style>
+/* FOG EFFECT */
+.fog {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('https://i.ibb.co/4R1tM3T/fog-trans.png') repeat;
+  opacity: 0.05;
+  animation: fogMove 60s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes fogMove {
+  from { background-position: 0 0; }
+  to { background-position: 1000px 0; }
+}
+
+/* STATIC PULSE */
+
+
+
+
+/* BUTTON LIGHTNING */
+.donate-button:hover {
+  animation: shock 0.2s linear;
+}
+
+@keyframes shock {
+  0% { filter: drop-shadow(0 0 5px #00f0ff); transform: scale(1.05); }
+  50% { filter: drop-shadow(0 0 20px #00f0ff); transform: scale(1.1); }
+  100% { filter: drop-shadow(0 0 5px #00f0ff); transform: scale(1.05); }
+}
+
+/* FLICKER TITLE */
+h2, h3 {
+  
+}
+
+
+
+    @font-face {
+      font-family: '28DaysLater';
+      src: url('fonts/28 Days Later.ttf') format('truetype');
+    }
+
+    html, body {
+      margin: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: #000 url("images/background.jpg") no-repeat center center fixed;
+      background-size: cover;
+      animation: bgPulse 20s infinite alternate;
+      color: #ccf9ff;
+      overflow-x: hidden;
+    }
+
+    @keyframes bgPulse {
+      0% { filter: brightness(1) contrast(1); }
+      100% { filter: brightness(1.05) contrast(1.2); }
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 40px 20px;
+      text-align: center;
+      border-bottom: 4px solid #00f0ff;
+    }
+
+    h1 {
+      font-family: '28DaysLater', sans-serif;
+      font-size: 3.2em;
+      color: #00f0ff;
+      text-shadow: 0 0 6px #00f0ff;
+      margin: 0;
+      letter-spacing: 4px;
+      animation: pulseGlow 3s infinite ease-in-out, glitch 1s infinite;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { text-shadow: 0 0 6px #00f0ff; }
+      50% { text-shadow: 0 0 20px #00f0ff, 0 0 30px #00f0ff; }
+    }
+
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-1px, 1px); }
+      40% { transform: translate(1px, -1px); }
+      60% { transform: translate(-2px, 2px); }
+      80% { transform: translate(1px, 1px); }
+      100% { transform: translate(0); }
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #00f0ff;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+    }
+
+    main {
+      padding: 40px;
+      max-width: 960px;
+      margin: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+      border: 2px solid #00f0ff;
+      border-radius: 10px;
+    }
+
+    section {
+      margin-bottom: 60px;
+    }
+
+    h2, h3 {
+      font-family: '28DaysLater', sans-serif;
+      color: #00f0ff;
+      text-shadow: 0 0 3px #00f0ff;
+    }
+
+    h2 {
+      border-bottom: 2px solid #00f0ff;
+      padding-bottom: 8px;
+    }
+
+    .donate-button {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #00f0ff;
+      color: #000;
+      font-weight: bold;
+      border-radius: 4px;
+      margin-top: 15px;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: pulseButton 2s infinite ease-in-out;
+    }
+
+    .donate-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #00f0ff;
+    }
+
+    @keyframes pulseButton {
+      0%, 100% { box-shadow: 0 0 10px #00f0ff; }
+      50% { box-shadow: 0 0 20px #00f0ff; }
+    }
+
+    #audio-control {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.8);
+      border: 2px solid #00f0ff;
+      color: #00f0ff;
+      padding: 10px 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      z-index: 999;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.9);
+      color: #00f0ff;
+      border-top: 2px solid #00f0ff;
+      font-size: 0.9em;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    table th, table td {
+      border: 1px solid #00f0ff;
+      padding: 12px;
+      text-align: center;
+    }
+
+    table th {
+      background-color: #002d2d;
+      color: #00f0ff;
+    }
+
+    table tr:nth-child(even) {
+      background-color: rgba(0, 64, 64, 0.3);
+    }
+
+    table tr:nth-child(odd) {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body style="display: flex; flex-direction: column; min-height: 100vh; margin: 0;">
+<div id="audio-control">🔇 Activer le son</div>
+<audio id="background-audio" loop="" src="audio/ROTDSong2.mp3"></audio>
+
+<header>
+<h1>RISE OF THE DEATH</h1>
+</header>
+<nav style="text-align:center; margin: 20px 0;"><a href="index.html" style="display:inline-block; background:#00f0ff; color:#000; font-weight:bold; padding:10px 20px; margin:5px; border-radius:5px; text-decoration:none; box-shadow: 0 0 10px #00f0ff; transition: all 0.3s ease;">Bienvenue survivant</a> | <a href="serveur.html" style="display:inline-block; background:#00f0ff; color:#000; font-weight:bold; padding:10px 20px; margin:5px; border-radius:5px; text-decoration:none; box-shadow: 0 0 10px #00f0ff; transition: all 0.3s ease;">À propos du serveur</a> | <a href="regles.html" style="display:inline-block; background:#00f0ff; color:#000; font-weight:bold; padding:10px 20px; margin:5px; border-radius:5px; text-decoration:none; box-shadow: 0 0 10px #00f0ff; transition: all 0.3s ease;">Règlement</a> | <a href="infos.html" style="display:inline-block; background:#00f0ff; color:#000; font-weight:bold; padding:10px 20px; margin:5px; border-radius:5px; text-decoration:none; box-shadow: 0 0 10px #00f0ff; transition: all 0.3s ease;">Infos de Connexion</a> | <a href="donations.html" style="display:inline-block; background:#00f0ff; color:#000; font-weight:bold; padding:10px 20px; margin:5px; border-radius:5px; text-decoration:none; box-shadow: 0 0 10px #00f0ff; transition: all 0.3s ease;">Programme de Donations</a> | <a href="contact.html" style="display:inline-block; background:#00f0ff; color:#000; font-weight:bold; padding:10px 20px; margin:5px; border-radius:5px; text-decoration:none; box-shadow: 0 0 10px #00f0ff; transition: all 0.3s ease;">Rejoignez la communauté</a></nav>
+<main style="padding: 80px 60px 60px; max-width: 800px; margin: 40px auto; text-align: center; background-color: rgba(0,0,0,0.85); border: 2px solid #00f0ff; border-radius: 10px; flex: 1 0 auto;">
+<section id="donations">
+<h2>Programme de Donations</h2>
+<p>Les dons ne sont pas obligatoires pour jouer sur ce serveur.
+  Ils sont toutefois grandement appréciés : ils permettent de financer l’hébergement et l’acquisition de nouveaux mods pour enrichir l’expérience de jeu.
+  
+  ⚠️ Important :
+  
+  Les dons sont valables 3 mois et disparaissent après un wipe.
+  
+  Ils ne sont pas transférables entre comptes.
+  
+  Tous les objets obtenus via un pack de donation sont également disponibles dans le jeu, via le gameplay classique.
+  
+  Aucun remboursement ne sera effectué.
+  
+  Les packs ne sont pas cumulables.
+  
+  Une fois votre don effectué, ouvrez un ticket sur notre Discord avec :
+  
+  une capture d’écran de votre don
+  
+  la date, le montant et l’ID de transaction
+  
+  ainsi que le pack choisi
+  <br>
+  
+  🇬🇧 Donation Information
+  Donations are not required to play on this server.
+  However, they are greatly appreciated and help support the server by covering hosting costs and allowing us to purchase new mods.
+  
+  ⚠️ Please note:
+  
+  Donations are valid for 3 months and reset with every wipe.
+  
+  They are not transferable between accounts.
+  
+  All items included in donation packs are also obtainable in-game through regular gameplay.
+  
+  Donations are non-refundable and not stackable.
+  
+  After donating, please create a ticket on DISCORD with:
+  
+  a screenshot of your donation
+  
+  the date, amount, and transaction ID
+  
+  and the bundle you’ve selected:</p>
+<table>
+<thead>
+<tr>
+<th>Palier</th>
+<th>Montant</th>
+<th>Avantages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Supporter</td>
+<td>5€</td>
+<td>Badge Discord, 1000 crédits</td>
+</tr>
+<tr>
+<td>Survivant</td>
+<td>10€</td>
+<td>Sac de départ amélioré</td>
+</tr>
+<tr>
+<td>Héros</td>
+<td>20€</td>
+<td>Skin personnalisé</td>
+</tr>
+<tr>
+<td>Légende</td>
+<td>50€</td>
+<td>Zone protégée + skins + VIP</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-top: 20px;">Preuve de paiement à envoyer sur Discord pour recevoir vos bonus.</p>
+<a class="donate-button" href="https://www.paypal.com/donate" target="_blank">Faire un don</a>
+</section>
+</main>
+<footer style="text-align: center; padding: 20px; background-color: rgba(0, 0, 0, 0.9); color: #00f0ff; border-top: 2px solid #00f0ff; font-size: 0.9em;">
+<p>© 2025 Rise of the Death. Survivre dans le froid numérique.</p>
+</footer>
+<script>
+    const audio = document.getElementById("background-audio");
+    const control = document.getElementById("audio-control");
+    let isPlaying = false;
+
+    // Fade-in audio
+    audio.volume = 0;
+    audio.addEventListener("play", () => {
+      let vol = 0;
+      const interval = setInterval(() => {
+        if (vol < 1) {
+          vol += 0.05;
+          audio.volume = Math.min(vol, 1);
+        } else {
+          clearInterval(interval);
+        }
+      }, 200);
+    });
+
+    control.addEventListener("click", () => {
+      if (isPlaying) {
+        audio.pause();
+        control.textContent = "🔇 Activer le son";
+      } else {
+        audio.play();
+        control.textContent = "🔊 Couper le son";
+      }
+      isPlaying = !isPlaying;
+    });
+  </script>
+</body>
+</html>
